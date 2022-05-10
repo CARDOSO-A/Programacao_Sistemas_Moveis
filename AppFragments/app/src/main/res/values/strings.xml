@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFragments</string>
+    <string name="title_activity_list_fragment">Lista Fragment</string>
+    <string name="title_activity_Img_fragment">Imagens Rigth</string>
+</resources>
