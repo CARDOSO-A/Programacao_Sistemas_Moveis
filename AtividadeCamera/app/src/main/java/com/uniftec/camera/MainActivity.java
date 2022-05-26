@@ -33,8 +33,6 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView imagem = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder(); //esta linha
-        StrictMode.setVmPolicy(builder.build()); //esta linha
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -113,24 +110,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            try {
+           // try {
                 //ImageView imagem = (ImageView) findViewById(R.id.imagem);
-                Bitmap bm1 = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(mCurrentPhotoPath)));
-                imagem.setImageBitmap(bm1);
-            } catch (FileNotFoundException fnex) {
-                Toast.makeText(getApplicationContext(), "Foto não encontrada!", Toast.LENGTH_LONG).show();
-            }
+                //Bitmap bm1 = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(mCurrentPhotoPath)));
+               // imagem.setImageBitmap(bm1);
+            //} catch (FileNotFoundException fnex) {
+               //Toast.makeText(getApplicationContext(), "Foto não encontrada!", Toast.LENGTH_LONG).show();
+            //}
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
@@ -147,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
         String emailString = email.getText().toString();
         String telefoneString = telefone.getText().toString();
 
-        imagem.setDrawingCacheEnabled(true);
-        Bitmap b = imagem.getDrawingCache();
+        //imagem.setDrawingCacheEnabled(true);
+        //Bitmap b = imagem.getDrawingCache();
 
         if(!nomeString.isEmpty() && !emailString.isEmpty() && !telefoneString.isEmpty()){
 
@@ -156,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             resultado.putExtra("nome", nomeString);
             resultado.putExtra("email", emailString);
             resultado.putExtra("telefone", telefoneString);
-            resultado.putExtra("bitmap", b);
+            //resultado.putExtra("bitmap", b);
             startActivity(resultado);
 
         }else{

@@ -117,5 +117,5 @@
         android:contentDescription="Foto tirada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastrar" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewErro" />
 </androidx.constraintlayout.widget.ConstraintLayout>
